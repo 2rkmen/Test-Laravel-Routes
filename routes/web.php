@@ -14,21 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    return view('posts', [
+        'posts' => \App\Models\Post::all()
+    ]);
 });
 
-Route::get('posts/{post}', function ($postname) {
+Route::get('posts/{post}', function ($slug) {
+    //найти пост по названию и передаем на вью с именем 'post'
+    $post = \App\Models\Post::find($slug);
+    return view('post', [
+        'post' => $post]
+    );
 
-    //    ddd($path);
-    if(!file_exists($path = __DIR__ . "/../resources/posts/{$postname}.html")){
-        return redirect('/');
-    }
-
-    //в php7.4 и выше появились стрелочные функции. они могут дергать переменные из родительской области видимости по умолчанию
-    // fn()=>
-    $post = cache()->remember("posts.{$postname}", now()->addMinutes(2), fn()=>file_get_contents($path));
-
-    return view('post', ['post' => $post]);
 //фильтрация переменной post с регуляркой
 // есть еще хелперы whereAlpha(), whereNumeric, whereAlphaNumeric
 })->where('post', '[A-z_\-]+');

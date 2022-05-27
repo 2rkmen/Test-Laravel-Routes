@@ -10,19 +10,12 @@
     <title>Document</title>
 </head>
 <body>
+@foreach($posts as $post)
 
-<article>
-    <h1><a href="/posts/my-first-post">хеллоу, бл</a></h1>
+    <article>
+        {!! $post !!}
+    </article>
+@endforeach
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorum earum facilis ipsam nisi placeat quaerat quas,
-        ratione rerum sunt? Alias dolorem enim, impedit nam nemo numquam pariatur ratione tenetur. </p>
-</article>
-
-<article>
-    <h1><a href="/posts/my-second-post">хеллоу, бл</a></h1>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dolorum earum facilis ipsam nisi placeat quaerat quas,
-        ratione rerum sunt? Alias dolorem enim, impedit nam nemo numquam pariatur ratione tenetur. </p>
-</article>
 </body>
 </html>

@@ -7,10 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/app.css">
     <script src="/app.js"></script>
-    <title>Document</title>
+    <title>Document - post1</title>
 </head>
 <body>
 
-<h1>хеллоу, бл</h1>
+<article>
+    {!! $post !!}
+</article>
+
+<a href="/">go back</a>
 </body>
 </html>

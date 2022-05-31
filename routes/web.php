@@ -23,11 +23,11 @@ Route::get('posts/', function () {
 
 Route::get('posts/{post}', function ($slug) {
     //найти пост по названию и передаем на вью с именем 'post'
-    $post = \App\Models\Post::find($slug);
+    $post = \App\Models\Post::findOrFail($slug);
     return view('post', [
         'post' => $post]
     );
 
 //фильтрация переменной post с регуляркой
 // есть еще хелперы whereAlpha(), whereNumeric, whereAlphaNumeric
-})->where('post', '[A-z_\-]+');
+});

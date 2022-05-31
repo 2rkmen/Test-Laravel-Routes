@@ -9,3 +9,4 @@
 </x-layout>
 
 
+<x-button style="color:red">click me</x-button>

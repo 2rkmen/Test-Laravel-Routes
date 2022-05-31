@@ -45,9 +45,16 @@ class Post
 
 
         return static::all()->firstWhere('slug', $slug);
-
-
-
-
     }
+
+    public static function findOrFail($slug){
+        // из всех постов, найти единственный с урлом , который совпадает с запрошенным
+        $post =  static::find($slug);
+        if(!$post){
+            throw new ModelNotFoundException();
+        }
+        return $post;
+   }
+
+
 }

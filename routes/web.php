@@ -21,9 +21,8 @@ Route::get('posts/', function () {
     ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
+Route::get('posts/{post:slug}', function (Post $post) {
     //найти пост по названию и передаем на вью с именем 'post'
-    $post = \App\Models\Post::findOrFail($slug);
     return view('post', [
         'post' => $post]
     );

@@ -43,7 +43,14 @@ class DatabaseSeeder extends Seeder
             'title' => "my family post",
             'slug' => "my-family-post",
             'excerpt' => "excerpt family post",
-            'body' => "family lorem ipsum dolar sit ames",
+            'body' => "<p>family While Clockwork provides a lot of performance metrics and profiling features like
+timeline events, finding the problematic spot in your application can still be hard. Xdebug is a PHP extension,
+ which provides an advanced profiler, collecting metrics about every single function call.
+ Clockwork comes with a full-featured Xdebug profiler UI, you can find it in the performance tab.</p>
+
+<p>The profiler UI will show you a breakdown of all function calls with their self and inclusive cost.
+ You can toggle between execution time or memory usage metrics, exact or pecentual representation and of course
+  the data is orderable and filterable.</p>",
         ]);
         Post::create([
             'user_id' => $user->id,

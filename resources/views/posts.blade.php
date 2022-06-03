@@ -4,11 +4,16 @@
             <h1>
                 <a href="/posts/{{$post->slug}}">{{$post->title}}</a>
             </h1>
+            <p>
+                <a href="/categories/{{$post->category->slug}}">{{$post->category->name}}</a>
+            </p>
+            <div>
             {!! $post->excerpt !!}
+            </div>
         </article>
     @endforeach
 
 </x-layout>
 
 
-<x-button style="color:red">click me</x-button>
+{{--<x-button style="color:red">click me</x-button>--}}

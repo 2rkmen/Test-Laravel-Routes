@@ -18,17 +18,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 //truncate не нужен если запускаешь php artisan migrate:fresh --seed
-//        User::truncate();
-//        Post::truncate();
-//        Category::truncate();
 
-        Post::factory(5)->create();
+        $user = User::factory()->create([
+            'name' => 'Lelya Matveeva'
+        ]);
 
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Post::factory(5)->create([
+            'user_id' => $user->id
+        ]);
+        Post::factory()->create();
     }
 }

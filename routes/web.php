@@ -29,7 +29,7 @@ Route::get('posts/', function () {
      * [2022-06-03 09:46:24] local.DEBUG: select * from `categories` where `categories`.`id` = ? limit 1 [3]
      *  */
     return view('posts', [
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category', 'author')->get()
     ]);
 });
 
@@ -49,5 +49,12 @@ Route::get('posts/{post:slug}', function (Post $post) {
 Route::get('categories/{category:slug}', function (\App\Models\Category $category){
     return view('posts', [
         'posts' => $category->posts
+    ]);
+});
+
+Route::get('authors/{author:username}', function (\App\Models\User $author){
+    return view('posts', [
+//        'posts' => $author->posts()->with('author', 'category')->get()
+        'posts' => $author->posts
     ]);
 });

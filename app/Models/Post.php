@@ -11,9 +11,10 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        //когда нужно дернуть поле с названием, не совпадающем с внешним ключом
+        return $this->belongsTo(User::class, 'user_id');
     }
     public function category()
     {

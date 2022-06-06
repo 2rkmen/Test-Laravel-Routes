@@ -10,12 +10,14 @@ class Post extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $with = ['category', 'author'];
 
     public function author()
     {
         //когда нужно дернуть поле с названием, не совпадающем с внешним ключом
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function category()
     {
         //belongs to
